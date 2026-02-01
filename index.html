@@ -7,6 +7,7 @@
     <meta name="description" content="Finish י.ש עבודות בניה - בהנהלת ישראל, שמעון ויצחק. שיפוצים, עבודות גמר ומחשבון הצעת מחיר אונליין.">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
@@ -24,11 +25,9 @@
         .bg-gold { background-color: var(--gold-main); }
         .gold-gradient { background: linear-gradient(135deg, #F9E2AF 0%, #D4AF37 50%, #B8860B 100%); }
         
-        /* Animations */
         .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         
-        /* Pulse Animation for WhatsApp */
         .pulse-btn { animation: pulse 2s infinite; }
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
@@ -48,9 +47,9 @@
     <nav class="bg-black text-white fixed w-full z-50 shadow-xl border-b border-gray-800">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="images/1769618160306.png" alt="Finish Logo" class="h-12 w-auto object-contain bg-white rounded p-1">
+                <img src="1769618160306.png" alt="Finish Logo" class="h-12 w-auto object-contain bg-white rounded p-1">
                 <div class="hidden md:block">
-                    <span class="block text-xl font-black tracking-widest uppercase text-white">FINISH</span>
+                    <span class="block text-xl font-black tracking-widest uppercase">FINISH</span>
                     <span class="block text-[10px] text-[#D4AF37] tracking-[0.2em] font-bold">י.ש עבודות בניה</span>
                 </div>
             </div>
@@ -68,11 +67,11 @@
     </nav>
     <header class="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="images/background.jpg" class="w-full h-full object-cover brightness-[0.3]" alt="רקע בניה">
+            <img src="1769928164915.png" class="w-full h-full object-cover brightness-[0.3]" alt="רקע בניה">
         </div>
         
         <div class="relative z-10 container mx-auto px-4 text-center text-white mt-16">
-            <img src="images/1769618160306.png" alt="Logo" class="w-32 mx-auto mb-6 rounded-lg shadow-2xl border-2 border-[#D4AF37] fade-in">
+            <img src="1769618160306.png" alt="Logo" class="w-32 mx-auto mb-6 rounded-lg shadow-2xl border-2 border-[#D4AF37] fade-in">
             <h1 class="text-5xl md:text-7xl font-black mb-4 fade-in leading-tight">
                 בונים את החלום<br><span class="text-transparent bg-clip-text gold-gradient">מהיסוד ועד הגמר</span>
             </h1>
@@ -80,11 +79,11 @@
                 ישראל, שמעון ויצחק - השילוב המנצח לשיפוץ מושלם.
                 מקצועיות, אמינות וגימור ברמה הגבוהה ביותר.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 fade-in">
-                <a href="#calculator" class="bg-[#D4AF37] text-black px-8 py-3 rounded font-bold hover:bg-white transition shadow-lg w-full md:w-auto">
+            <div class="flex justify-center gap-4 fade-in">
+                <a href="#calculator" class="bg-[#D4AF37] text-black px-8 py-3 rounded font-bold hover:bg-white transition shadow-lg">
                     <i class="fas fa-calculator ml-2"></i> קבל הצעת מחיר אונליין
                 </a>
-                <a href="https://wa.me/972524905732" class="bg-green-500 text-white px-8 py-3 rounded font-bold hover:bg-green-600 transition shadow-lg w-full md:w-auto">
+                <a href="https://wa.me/972524905732" class="bg-green-500 text-white px-8 py-3 rounded font-bold hover:bg-green-600 transition shadow-lg">
                     <i class="fab fa-whatsapp ml-2"></i> וואטסאפ מהיר
                 </a>
             </div>
@@ -93,14 +92,14 @@
 
     <section id="calculator" class="py-20 relative bg-gray-900">
         <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
-            <img src="images/1769618160306.png" class="w-[800px] grayscale" alt="watermark">
+            <img src="1769618160306.png" class="w-[800px] grayscale" alt="watermark">
         </div>
 
-        <div class="container mx-auto px-4 relative z-10 text-right">
+        <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-black text-white mb-2">מחשבון הצעת מחיר ראשונית</h2>
                 <div class="w-20 h-1 bg-[#D4AF37] mx-auto"></div>
-                <p class="text-gray-400 mt-4">מלאו פרטים וקבלו אומדן מחיר מידי</p>
+                <p class="text-gray-400 mt-4">מלאו פרטים וקבלו אומדן מחיר מידי + שמירת הפרטים במערכת שלנו</p>
             </div>
 
             <div class="max-w-4xl mx-auto glass-panel rounded-2xl p-8 shadow-2xl flex flex-col md:flex-row gap-8">
@@ -118,18 +117,18 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold mb-1">שטח במ"ר</label>
+                        <label class="block text-sm font-bold mb-1">גודל הדירה/שטח (מ"ר)</label>
                         <input type="number" id="calc-area" class="w-full bg-gray-50 border p-3 rounded focus:border-[#D4AF37] outline-none" placeholder="לדוגמה: 100">
                     </div>
 
                     <div>
                         <label class="block text-sm font-bold mb-1">שם מלא</label>
-                        <input type="text" id="calc-name" class="w-full bg-gray-50 border p-3 rounded focus:border-[#D4AF37] outline-none">
+                        <input type="text" id="calc-name" class="w-full bg-gray-50 border p-3 rounded focus:border-[#D4AF37] outline-none" placeholder="ישראל ישראלי">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold mb-1">טלפון</label>
-                        <input type="tel" id="calc-phone" class="w-full bg-gray-50 border p-3 rounded focus:border-[#D4AF37] outline-none">
+                        <label class="block text-sm font-bold mb-1">טלפון לחזרה</label>
+                        <input type="tel" id="calc-phone" class="w-full bg-gray-50 border p-3 rounded focus:border-[#D4AF37] outline-none" placeholder="050-0000000">
                     </div>
 
                     <button id="calculate-btn" class="w-full gold-gradient text-black font-black py-4 rounded hover:brightness-110 transition shadow-lg mt-4">
@@ -137,101 +136,23 @@
                     </button>
                 </div>
 
-                <div class="md:w-1/2 bg-black text-white rounded-xl p-8 flex flex-col justify-center items-center text-center">
-                    <div id="result-box" class="hidden">
+                <div class="md:w-1/2 bg-black text-white rounded-xl p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    <div id="result-box" class="hidden relative z-10">
                         <p class="text-gray-400 text-sm mb-2">הערכת מחיר ראשונית:</p>
                         <div class="text-5xl font-black text-[#D4AF37] mb-2"><span id="price-display">0</span> ₪</div>
-                        <p class="text-xs text-gray-500">* המחיר הוא אומדן בלבד</p>
+                        <p class="text-xs text-gray-500 mb-6">* המחיר הוא אומדן בלבד ואינו מחייב.</p>
+                        
+                        <div class="bg-green-900/50 border border-green-500 p-4 rounded-lg">
+                            <i class="fas fa-check-circle text-green-400 text-2xl mb-2"></i>
+                            <p class="font-bold">הפרטים נשמרו בהצלחה!</p>
+                        </div>
                     </div>
                     
-                    <div id="default-box">
+                    <div id="default-box" class="relative z-10">
                         <i class="fas fa-calculator text-6xl text-gray-800 mb-4"></i>
-                        <p class="text-gray-500 text-sm">התוצאה תופיע כאן לאחר הזנת הנתונים</p>
+                        <p class="text-gray-500">התוצאה תופיע כאן לאחר לחיצה על "חשב מחיר"</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="gallery" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-black text-center mb-12">גלריית עבודות</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-xl h-[400px]">
-                    <img src="images/salon.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="סלון">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-[#D4AF37] font-bold border border-[#D4AF37] px-4 py-2 bg-black/50">עיצוב סלון</span>
-                    </div>
-                </div>
-                <div class="relative group overflow-hidden rounded-xl h-[190px]">
-                    <img src="images/geves.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="גבס">
-                </div>
-                <div class="relative group overflow-hidden rounded-xl h-[190px]">
-                    <img src="images/kitchen.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="מטבח">
-                </div>
-                <div class="relative group overflow-hidden rounded-xl h-[190px]">
-                    <img src="images/floor.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="ריצוף">
-                </div>
-                <div class="relative group overflow-hidden rounded-xl h-[190px]">
-                    <img src="images/paint.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="צבע">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black text-gray-400 py-10 border-t border-gray-800 text-center">
-        <div class="container mx-auto px-4">
-            <img src="images/1769618160306.png" class="w-16 mx-auto mb-4 grayscale opacity-50">
-            <h3 class="text-white font-bold text-lg">Finish י.ש עבודות בניה</h3>
-            <p class="text-xs mt-4">© 2026 כל הזכויות שמורות.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/972524905732" class="pulse-btn fixed bottom-6 left-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-2xl">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDV5gSdnHOEzhAlgHTKmf5isCMlcyNU0ME",
-            authDomain: "finishconstructionapp.firebaseapp.com",
-            projectId: "finishconstructionapp",
-            storageBucket: "finishconstructionapp.firebasestorage.app",
-            messagingSenderId: "597690527411",
-            appId: "1:597690527411:web:7027dec1669137047b8ac6"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Calculator Functionality
-        document.getElementById('calculate-btn').addEventListener('click', async () => {
-            const area = document.getElementById('calc-area').value;
-            const pricePerMeter = document.getElementById('calc-service').value;
-            const name = document.getElementById('calc-name').value;
-            const phone = document.getElementById('calc-phone').value;
-
-            if (!area || !name || !phone) {
-                alert("נא למלא את כל השדות");
-                return;
-            }
-
-            const total = area * pricePerMeter;
-            
-            // Show result
-            document.getElementById('default-box').classList.add('hidden');
-            document.getElementById('result-box').classList.remove('hidden');
-            document.getElementById('price-display').innerText = total.toLocaleString();
-
-            // Save to Firebase
-            try {
-                await addDoc(collection(db, "leads"), {
-                    name, phone, area, total, createdAt: serverTimestamp()
-                });
-            } catch (e) { console.error("Error saving lead", e); }
-        });
-    </script>
-</body>
-</html>
