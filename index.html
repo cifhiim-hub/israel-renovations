@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finish בנייה | מומחים לשיפוצים ועבודות גמר</title>
-    <meta name="description" content="צוות Finish בנייה - שלושה שותפים מומחים לשיפוץ הבית, עבודות גמר, צבע, גבס ואינסטלציה. כל אנשי המקצוע תחת קורת גג אחת. שירות בירושלים והסביבה.">
+    <meta name="description" content="צוות Finish בנייה - מומחים לשיפוץ הבית, עבודות גמר ופרוייקטים מורכבים. ניהול, תכנון וביצוע תחת קורת גג אחת.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -15,366 +15,390 @@
         
         body { 
             font-family: 'Heebo', sans-serif; 
-            scroll-behavior: smooth; 
+            overflow-x: hidden;
         }
         
-        /* Gold Colors */
-        .text-gold { color: #C5A059; }
-        .bg-gold { background-color: #C5A059; }
-        .border-gold { border-color: #C5A059; }
+        /* Premium Gold Palette */
+        :root {
+            --gold-light: #F9E2AF;
+            --gold-main: #D4AF37;
+            --gold-dark: #B8860B;
+        }
+
+        .text-gold { color: var(--gold-main); }
+        .bg-gold { background-color: var(--gold-main); }
+        .border-gold { border-color: var(--gold-main); }
         
         .gold-gradient { 
-            background: linear-gradient(135deg, #C5A059 0%, #E6C888 50%, #A88235 100%); 
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 50%, var(--gold-light) 100%); 
         }
         
-        /* Effects */
-        .hero-overlay {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #F9E2AF 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
         }
         
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Image Hover Effects */
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
         }
         
-        /* Floating Button Animation */
+        .gallery-item img {
+            transition: transform 0.7s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: 0.4s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Floating Button Pulse */
         @keyframes pulse-gold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        
-        .pulse-btn {
-            animation: pulse-gold 2s infinite;
-        }
+        .pulse-btn { animation: pulse-gold 2s infinite; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900">
 
-    <nav class="bg-gray-900 text-white fixed w-full z-50 shadow-lg top-0">
+    <nav class="bg-black text-white fixed w-full z-50 shadow-2xl border-b border-gray-800 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 gold-gradient rounded flex items-center justify-center text-gray-900 font-bold text-xl">
+                <div class="w-10 h-10 gold-gradient rounded flex items-center justify-center text-black font-bold text-xl shadow-lg">
                     <i class="fas fa-hammer"></i>
                 </div>
                 <div>
-                    <span class="block text-xl font-black tracking-tight uppercase leading-none">Finish</span>
-                    <span class="block text-xs text-gold tracking-widest uppercase">בנייה ושיפוצים</span>
+                    <span class="block text-xl font-black tracking-tighter uppercase leading-none">Finish</span>
+                    <span class="block text-[10px] text-[#D4AF37] tracking-[0.2em] uppercase font-bold">Construction</span>
                 </div>
             </div>
             
-            <div class="hidden md:flex gap-6 font-medium">
-                <a href="#about" class="hover:text-gold transition">למה אנחנו</a>
-                <a href="#services" class="hover:text-gold transition">שירותים</a>
-                <a href="#gallery" class="hover:text-gold transition">גלריה</a>
-                <a href="#team" class="hover:text-gold transition">הצוות</a>
+            <div class="hidden md:flex gap-8 font-medium text-sm">
+                <a href="#gallery" class="hover:text-[#D4AF37] transition uppercase tracking-wide">הפרויקטים שלנו</a>
+                <a href="#services" class="hover:text-[#D4AF37] transition uppercase tracking-wide">שירותים</a>
+                <a href="#team" class="hover:text-[#D4AF37] transition uppercase tracking-wide">הצוות</a>
             </div>
 
-            <a href="tel:0524905732" class="gold-gradient text-gray-900 px-5 py-2 rounded font-bold hover:brightness-110 transition shadow-lg hidden md:block">
-                <i class="fas fa-phone-alt ml-2"></i> חייג עכשיו
+            <a href="tel:0524905732" class="gold-gradient text-black px-6 py-2 rounded font-bold hover:brightness-110 transition shadow-[0_0_15px_rgba(212,175,55,0.3)] hidden md:block">
+                052-4905732 <i class="fas fa-phone-alt mr-2"></i> 
             </a>
         </div>
     </nav>
 
-    <header class="relative h-[85vh] flex items-center justify-center mt-16">
+    <header class="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="שיפוץ יוקרתי">
-            <div class="absolute inset-0 hero-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover brightness-[0.4] scale-105" alt="רקע יוקרתי">
         </div>
         
-        <div class="relative z-10 container mx-auto px-4 text-center text-white">
-            <div class="inline-block border-2 border-gold px-4 py-1 rounded-full mb-6 bg-black/30 backdrop-blur-sm">
-                <span class="text-gold font-bold tracking-wider text-sm uppercase">שלושה שותפים - סטנדרט אחד</span>
+        <div class="relative z-10 container mx-auto px-4 text-center text-white mt-10">
+            <div class="fade-in-section inline-block border border-[#D4AF37] px-6 py-2 rounded-full mb-6 bg-black/40 backdrop-blur-md">
+                <span class="text-[#D4AF37] font-bold tracking-widest text-sm uppercase">שלושה שותפים - סטנדרט בינלאומי</span>
             </div>
-            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">
-                בונים לכם את<br>
-                <span class="text-transparent bg-clip-text gold-gradient">הבית שתמיד רציתם</span>
+            <h1 class="fade-in-section text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tight">
+                להפוך תוכניות<br>
+                <span class="gold-text-gradient">ליצירת מופת</span>
             </h1>
-            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-                כל סוגי עבודות הגמר, השיפוץ והבנייה תחת קורת גג אחת.
-                ניהול, ביצוע ופיקוח ברמה הגבוהה ביותר.
+            <p class="fade-in-section text-lg md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                מומחים בבנייה, ניהול פרויקטים מורכבים ועבודות גמר ברמת גימור עלית.
+                כל המקצועות תחת קורת גג אחת, בשקט נפשי מלא.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-white text-gray-900 px-8 py-4 rounded font-bold text-lg hover:bg-gray-100 transition shadow-xl">
-                    קבלו הצעת מחיר
+            <div class="fade-in-section flex flex-col md:flex-row justify-center gap-5">
+                <a href="#contact" class="gold-gradient text-black px-10 py-4 rounded font-bold text-lg hover:brightness-110 transition shadow-xl">
+                    תיאום פגישת ייעוץ
                 </a>
-                <a href="#gallery" class="border border-white text-white px-8 py-4 rounded font-bold text-lg hover:bg-white/10 transition">
-                    צפו בעבודות שלנו
+                <a href="#gallery" class="border border-white/30 backdrop-blur-sm bg-white/5 text-white px-10 py-4 rounded font-bold text-lg hover:bg-white hover:text-black transition">
+                    לגלריית העבודות
                 </a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="py-16 bg-white relative z-20 -mt-10 mx-4 md:mx-20 rounded-xl shadow-2xl border-t-4 border-gold">
-        <div class="grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-gray-100">
-            <div class="p-4">
-                <i class="fas fa-users text-4xl text-gold mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">אחריות משולשת</h3>
-                <p class="text-gray-500">שלושה שותפים מחוייבים לכל פרויקט. יש לכם תמיד עם מי לדבר, בניהול ובשטח.</p>
-            </div>
-            <div class="p-4">
-                <i class="fas fa-hard-hat text-4xl text-gold mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">כל המקצועות</h3>
-                <p class="text-gray-500">חשמל, אינסטלציה, גבס, צבע וריצוף. לא צריך לרדוף אחרי קבלני משנה.</p>
-            </div>
-            <div class="p-4">
-                <i class="fas fa-stopwatch text-4xl text-gold mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">עמידה בזמנים</h3>
-                <p class="text-gray-500">אנחנו מבינים ששיפוץ זה מלחיץ. אנחנו מתחייבים לעבוד יעיל ולסיים בזמן.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-gray-50">
+    <section id="gallery" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">תחומי ההתמחות שלנו</h2>
-                <div class="w-20 h-1 bg-gold mx-auto"></div>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-4xl font-black text-gray-900 mb-2">גלריית ביצועים</h2>
+                <div class="w-24 h-1 gold-gradient mx-auto rounded-full"></div>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">משיפוצים קוסמטיים ועד פרוייקטים הנדסיים מורכבים. האיכות מדברת בעד עצמה.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-paint-roller"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+                <div class="gallery-item lg:col-span-2 lg:row-span-2 rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="סלון יוקרתי">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+                        <span class="text-[#D4AF37] font-bold text-sm uppercase">עבודות גמר</span>
+                        <h3 class="text-white text-2xl font-bold">עיצוב סלון יוקרתי</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">צבע ושפכטל אמריקאי</h4>
-                    <p class="text-gray-600">צביעה אומנותית, החלקת קירות ברמה הגבוהה ביותר, ושימוש בחומרים איכותיים בלבד.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-layer-group"></i>
+                <div class="gallery-item rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1581094794329-cd282adaf55a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="תוכניות בנייה">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-[#D4AF37] font-bold text-xs uppercase">תכנון</span>
+                        <h3 class="text-white text-lg font-bold">פיקוח הנדסי</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">עבודות גבס ועיצוב</h4>
-                    <p class="text-gray-600">הנמכות תקרה, נישות לטלוויזיה, קרניזים ומחיצות. עיצוב מודרני שמשדרג את הבית.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-border-all"></i>
+                <div class="gallery-item rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1595558430588-4660ebdf75b3?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="ריצוף">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-[#D4AF37] font-bold text-xs uppercase">ריצוף וחיפוי</span>
+                        <h3 class="text-white text-lg font-bold">ריצוף שיש</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">ריצוף וחיפוי</h4>
-                    <p class="text-gray-600">הדבקת ריצוף, פרקטים, חיפוי חדרי אמבטיה. דיוק מקסימלי בגימורים.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-faucet"></i>
+                <div class="gallery-item rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="גבס">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-[#D4AF37] font-bold text-xs uppercase">גבס</span>
+                        <h3 class="text-white text-lg font-bold">הנמכות תקרה</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">אינסטלציה וחשמל</h4>
-                    <p class="text-gray-600">טיפול בתשתיות, החלפת צנרת, נקודות חשמל ותאורה. הכל לפי התקן.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-home"></i>
+                <div class="gallery-item rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="מטבח">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-[#D4AF37] font-bold text-xs uppercase">מטבחים</span>
+                        <h3 class="text-white text-lg font-bold">שיפוץ מטבח</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">שיפוץ קומפלט</h4>
-                    <p class="text-gray-600">הריסה ובנייה מחדש. ליווי מלא משלב התכנון ועד מסירת המפתח.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition duration-300">
-                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gold text-2xl mb-6">
-                        <i class="fas fa-file-contract"></i>
+                <div class="gallery-item lg:col-span-2 rounded-xl group fade-in-section">
+                    <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="בנייה בשטח">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-[#D4AF37] font-bold text-xs uppercase">שלד ובנייה</span>
+                        <h3 class="text-white text-lg font-bold">בנייה ותוספות</h3>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">ניהול פרויקטים</h4>
-                    <p class="text-gray-600">שקט נפשי עבורכם. אנחנו מנהלים את האתר, הספקים והלו"ז.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+    <div class="bg-black text-white py-12 border-y border-gray-800">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center md:justify-between items-center gap-6 text-center md:text-right fade-in-section">
+            <div class="flex items-center gap-4">
+                <i class="fas fa-check-circle text-[#D4AF37] text-3xl"></i>
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-black mb-2">פרויקטים נבחרים</h2>
-                    <p class="text-gray-400">הצצה קטנה לסטנדרט הגמר שלנו</p>
+                    <h4 class="font-bold text-lg">אחריות מלאה</h4>
+                    <p class="text-gray-400 text-sm">לכל שלב בעבודה</p>
                 </div>
+            </div>
+            <div class="w-px h-10 bg-gray-700 hidden md:block"></div>
+            <div class="flex items-center gap-4">
+                <i class="fas fa-clock text-[#D4AF37] text-3xl"></i>
+                <div>
+                    <h4 class="font-bold text-lg">עמידה בזמנים</h4>
+                    <p class="text-gray-400 text-sm">ללא פשרות</p>
                 </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="h-64 rounded-lg overflow-hidden group relative">
-                    <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="עבודת גבס">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-gold font-bold border border-gold px-4 py-2">עבודות גבס</span>
-                    </div>
-                </div>
-                <div class="h-64 rounded-lg overflow-hidden group relative">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="מטבח ושיפוץ">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-gold font-bold border border-gold px-4 py-2">שיפוץ מטבח</span>
-                    </div>
-                </div>
-                <div class="h-64 rounded-lg overflow-hidden group relative">
-                    <img src="https://images.unsplash.com/photo-1620626012053-1c1f729f9e15?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="צבע ועיצוב">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-gold font-bold border border-gold px-4 py-2">צבע ועיצוב</span>
-                    </div>
+            </div>
+            <div class="w-px h-10 bg-gray-700 hidden md:block"></div>
+            <div class="flex items-center gap-4">
+                <i class="fas fa-gem text-[#D4AF37] text-3xl"></i>
+                <div>
+                    <h4 class="font-bold text-lg">גימור פרימיום</h4>
+                    <p class="text-gray-400 text-sm">חומרים איכותיים בלבד</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="team" class="py-20 bg-gray-50">
+    <section id="team" class="py-24 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">הצוות שלנו</h2>
-                <p class="text-gray-600 max-w-xl mx-auto">אנחנו לא "חברה בע"מ" אנונימית. יש לנו פנים, שמות וטלפונים. תרגישו חופשי לפנות.</p>
+            <div class="text-center mb-20 fade-in-section">
+                <h2 class="text-4xl font-black text-gray-900 mb-2">הנבחרת המנצחת</h2>
+                <div class="w-24 h-1 gold-gradient mx-auto rounded-full"></div>
+                <p class="text-gray-500 mt-4">שילוב של ניהול על, הנדסה מורכבת וביצוע מדויק.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-gray-900">
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user-tie text-3xl text-gray-600"></i>
+            <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:-translate-y-2 transition duration-300 fade-in-section">
+                    <div class="h-32 bg-gray-900 relative">
+                        <div class="absolute -bottom-12 right-1/2 translate-x-1/2 w-24 h-24 bg-white p-1 rounded-full shadow-lg">
+                            <img src="https://ui-avatars.com/api/?name=Shimon&background=1a1a1a&color=D4AF37&size=128" class="rounded-full w-full h-full" alt="שמעון">
                         </div>
-                        <h3 class="text-xl font-black text-gray-900">ישראל</h3>
-                        <p class="text-gold font-bold text-sm mb-6 uppercase tracking-wider">מנהל פרויקטים</p>
-                        
-                        <div class="space-y-3">
-                            <a href="tel:0524905732" class="block w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition">
-                                <i class="fas fa-phone-alt ml-2 text-gold"></i> 052-4905732
-                            </a>
-                            <a href="https://wa.me/972524905732" class="block w-full border-2 border-green-500 text-green-600 py-3 rounded-lg font-bold hover:bg-green-50 transition">
-                                <i class="fab fa-whatsapp ml-2"></i> שלח הודעה
-                            </a>
-                        </div>
+                    </div>
+                    <div class="pt-16 pb-8 px-8 text-center">
+                        <h3 class="text-2xl font-black text-gray-900">שמעון</h3>
+                        <p class="text-[#D4AF37] font-bold text-sm uppercase tracking-wider mb-4">מנהל תוכניות גדולות</p>
+                        <p class="text-gray-500 text-sm mb-6">אחראי על התכנון ההנדסי, פרוייקטים מורכבים ותשתיות רחבות היקף.</p>
+                        <a href="tel:0555693519" class="inline-block w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-[#D4AF37] hover:text-black transition">
+                            055-5693519 <i class="fas fa-phone ml-2"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-gold scale-105 z-10">
-                    <div class="bg-gold text-white text-center py-2 text-sm font-bold">זמין בשטח</div>
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-ruler-combined text-3xl text-gray-600"></i>
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform md:-translate-y-6 border-t-4 border-[#D4AF37] relative z-10 fade-in-section">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-bl-lg">בעלים</div>
+                    <div class="h-32 gold-gradient relative">
+                        <div class="absolute -bottom-12 right-1/2 translate-x-1/2 w-28 h-28 bg-white p-1 rounded-full shadow-lg">
+                            <img src="https://ui-avatars.com/api/?name=Israel&background=D4AF37&color=000&size=128" class="rounded-full w-full h-full" alt="ישראל">
                         </div>
-                        <h3 class="text-xl font-black text-gray-900">שמעון</h3>
-                        <p class="text-gold font-bold text-sm mb-6 uppercase tracking-wider">ביצוע ופיקוח</p>
-                        
-                        <div class="space-y-3">
-                            <a href="tel:0555693519" class="block w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition">
-                                <i class="fas fa-phone-alt ml-2 text-gold"></i> 055-5693519
-                            </a>
-                            <a href="https://wa.me/972555693519" class="block w-full border-2 border-green-500 text-green-600 py-3 rounded-lg font-bold hover:bg-green-50 transition">
-                                <i class="fab fa-whatsapp ml-2"></i> שלח הודעה
-                            </a>
-                        </div>
+                    </div>
+                    <div class="pt-16 pb-8 px-8 text-center">
+                        <h3 class="text-3xl font-black text-gray-900">ישראל</h3>
+                        <p class="text-[#D4AF37] font-bold text-sm uppercase tracking-wider mb-4">מנכ"ל ובעלים</p>
+                        <p class="text-gray-500 text-sm mb-6">מנהל העל של החברה. אחראי על קשרי לקוחות, חוזים וסטנדרט השירות.</p>
+                        <a href="tel:0524905732" class="inline-block w-full gold-gradient text-black py-4 rounded-lg font-bold hover:brightness-110 transition shadow-lg">
+                            052-4905732 <i class="fas fa-phone ml-2"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-gray-900">
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-paint-brush text-3xl text-gray-600"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-gray-900">יצחק</h3>
-                        <p class="text-gold font-bold text-sm mb-6 uppercase tracking-wider">מומחה עבודות גמר</p>
-                        
-                        <div class="space-y-3">
-                            <a href="tel:0587251612" class="block w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition">
-                                <i class="fas fa-phone-alt ml-2 text-gold"></i> 058-7251612
-                            </a>
-                            <a href="https://wa.me/972587251612" class="block w-full border-2 border-green-500 text-green-600 py-3 rounded-lg font-bold hover:bg-green-50 transition">
-                                <i class="fab fa-whatsapp ml-2"></i> שלח הודעה
-                            </a>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:-translate-y-2 transition duration-300 fade-in-section">
+                    <div class="h-32 bg-gray-900 relative">
+                        <div class="absolute -bottom-12 right-1/2 translate-x-1/2 w-24 h-24 bg-white p-1 rounded-full shadow-lg">
+                            <img src="https://ui-avatars.com/api/?name=Yitzhak&background=1a1a1a&color=D4AF37&size=128" class="rounded-full w-full h-full" alt="יצחק">
                         </div>
                     </div>
+                    <div class="pt-16 pb-8 px-8 text-center">
+                        <h3 class="text-2xl font-black text-gray-900">יצחק</h3>
+                        <p class="text-[#D4AF37] font-bold text-sm uppercase tracking-wider mb-4">מנהל פרוייקטים</p>
+                        <p class="text-gray-500 text-sm mb-6">אחראי על ניהול אתר העבודה, סנכרון בעלי המקצוע וביצוע מושלם בשטח.</p>
+                        <a href="tel:0587251612" class="inline-block w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-[#D4AF37] hover:text-black transition">
+                            058-7251612 <i class="fas fa-phone ml-2"></i>
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gray-900 z-0"></div>
+    <section id="contact" class="relative py-24 bg-black overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37] rounded-full filter blur-[100px] opacity-20"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-900 rounded-full filter blur-[100px] opacity-20"></div>
+
         <div class="container mx-auto px-4 relative z-10">
-            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-black mb-4">רוצים להתחיל?</h2>
-                    <p class="text-gray-600 mb-8">השאירו פרטים ונחזור אליכם בהקדם לתיאום פגישת ייעוץ ללא התחייבות.</p>
+            <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row gap-16 shadow-2xl fade-in-section">
+                
+                <div class="md:w-1/2 text-white">
+                    <h2 class="text-4xl font-black mb-6">בואו נבנה את החלום שלכם</h2>
+                    <p class="text-gray-300 text-lg mb-8">
+                        אנחנו זמינים לשמוע על הפרויקט שלכם. השאירו פרטים ונחזור אליכם עם הצעה מסודרת והתחייבות למחיר הוגן ועבודה מעולה.
+                    </p>
                     
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gold">
-                                <i class="fas fa-map-marker-alt"></i>
+                            <div class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black text-xl">
+                                <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
-                                <p class="font-bold">אזור שירות</p>
-                                <p class="text-sm text-gray-500">ירושלים והסביבה</p>
+                                <p class="font-bold text-[#D4AF37]">זמינים בוואטסאפ</p>
+                                <p class="text-gray-400">מענה מהיר לכל שאלה</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gold">
-                                <i class="fas fa-envelope"></i>
+                            <div class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black text-xl">
+                                <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div>
-                                <p class="font-bold">דוא"ל</p>
-                                <p class="text-sm text-gray-500">finish.construction@gmail.com</p>
+                                <p class="font-bold text-[#D4AF37]">אזורי פעילות</p>
+                                <p class="text-gray-400">ירושלים, מודיעין והסביבה</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="md:w-1/2">
-                    <form onsubmit="sendToWhatsapp(event)" class="space-y-4">
+                    <form onsubmit="sendToWhatsapp(event)" class="space-y-4 bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">יצירת קשר מהירה</h3>
                         <div>
-                            <label class="block text-sm font-bold mb-2">שם מלא</label>
-                            <input type="text" id="name" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-gold transition" required>
+                            <label class="block text-sm font-bold mb-2 text-gray-700">שם מלא</label>
+                            <input type="text" id="name" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-4 focus:outline-none focus:border-[#D4AF37] transition" required placeholder="ישראל ישראלי">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold mb-2">טלפון</label>
-                            <input type="tel" id="phone" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-gold transition" required>
+                            <label class="block text-sm font-bold mb-2 text-gray-700">טלפון</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-4 focus:outline-none focus:border-[#D4AF37] transition" required placeholder="050-0000000">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold mb-2">מה מהות העבודה?</label>
-                            <select id="service" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-gold transition">
-                                <option>שיפוץ כללי</option>
-                                <option>צבע וגבס</option>
-                                <option>ריצוף</option>
-                                <option>אינסטלציה/חשמל</option>
+                            <label class="block text-sm font-bold mb-2 text-gray-700">סוג העבודה</label>
+                            <select id="service" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-4 focus:outline-none focus:border-[#D4AF37] transition">
+                                <option>שיפוץ כללי / דירה שלמה</option>
+                                <option>תוכניות והרחבות בנייה</option>
+                                <option>עבודות גמר (צבע/גבס/ריצוף)</option>
                                 <option>אחר</option>
                             </select>
                         </div>
-                        <button type="submit" class="w-full gold-gradient text-gray-900 font-bold py-4 rounded-lg hover:brightness-110 transition shadow-lg">
-                            שלח פנייה בוואטסאפ
+                        <button type="submit" class="w-full gold-gradient text-black font-black text-lg py-4 rounded-lg hover:shadow-xl hover:brightness-110 transition flex items-center justify-center gap-2">
+                            שלח הודעה עכשיו <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-black text-white pt-16 pb-8 border-t border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-8">
-                <span class="text-2xl font-black tracking-tight uppercase">Finish <span class="text-gold">בנייה</span></span>
-            </div>
-            <div class="flex justify-center gap-6 mb-8 text-gray-400">
-                <a href="#" class="hover:text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                <a href="#" class="hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
-            </div>
-            <p class="text-gray-600 text-sm">© 2026 כל הזכויות שמורות ל-Finish בנייה ושיפוצים.</p>
-        </div>
+    <footer class="bg-black text-gray-500 py-10 text-center text-sm border-t border-gray-900">
+        <p class="mb-2 text-[#D4AF37] font-bold tracking-widest uppercase">Finish Construction Team</p>
+        <p>© 2026 כל הזכויות שמורות לישראל, שמעון ויצחק.</p>
     </footer>
 
-    <a href="tel:0524905732" class="pulse-btn fixed bottom-6 left-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-2xl md:hidden">
-        <i class="fas fa-phone"></i>
+    <a href="https://wa.me/972524905732" class="pulse-btn fixed bottom-6 left-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-2xl md:hidden">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
+        // WhatsApp Sender
         function sendToWhatsapp(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
+            const myNumber = "972524905732"; // ישראל
             
-            // מספר הטלפון שלך כמנהל
-            const myNumber = "972524905732";
-            
-            const text = `היי, שמי ${name}, הטלפון שלי הוא ${phone}. אשמח לקבל פרטים לגבי ${service}.`;
+            const text = `היי ישראל, הגעתי מהאתר. שמי ${name}, טלפון ${phone}. מעוניין בפרטים לגבי ${service}.`;
             
             window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`, '_blank');
         }
+
+        // Animation Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 </html>
