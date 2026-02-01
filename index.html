@@ -3,111 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שיפוצים ומקצועות הבנייה | המומחים לשירותכם</title>
-<meta name="description" content="מחפשים קבלן שיפוצים אמין? הגעתם למקום הנכון. כל עבודות השיפוצים, הבנייה והגמר תחת קורת גג אחת. איכות, אמינות ועבודה מקצועית.">
-<meta name="keywords" content="קבלן שיפוצים, שיפוץ דירה, עבודות גמר, צבע, גבס, רצף, אינסטלציה, בנייה, שיפוצים כלליים">
+    <title>Finish בנייה | כל סוגי המקצועות והעובדים במקום אחד</title>
+    <meta name="description" content="צוות Finish בנייה - מומחים לשיפוץ הבית, עבודות גמר ועיצוב. שלשה שותפים, כל סוגי המקצועות והעובדים תחת קורת גג אחת.">
+    <meta name="keywords" content="קבלן שיפוצים, שיפוץ דירה, עבודות גמר, צבע, גבס, רצף, אינסטלציה, בנייה, דרושים שיפוצים">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
-        body { font-family: 'Assistant', sans-serif; }
+        body { font-family: 'Assistant', sans-serif; scroll-behavior: smooth; }
         .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F9E2AF 50%, #B8860B 100%); }
         .dark-bg { background-color: #1a1a1a; }
+        .btn-shadow { box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4); }
+        .card-glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-900">
 
     <nav class="dark-bg text-white p-4 sticky top-0 z-50 shadow-2xl">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center shadow-lg">
-                    <i class="fas fa-hammer text-black text-xl"></i>
+                <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                    <i class="fas fa-hammer text-black text-lg"></i>
                 </div>
-                <span class="text-2xl font-black tracking-tighter uppercase">Finish <span class="text-[#D4AF37]">בנייה</span></span>
+                <span class="text-xl font-black tracking-tighter uppercase">Finish <span class="text-[#D4AF37]">בנייה</span></span>
             </div>
-            <div class="hidden md:flex gap-8 font-bold">
-                <a href="#projects" class="hover:text-[#D4AF37] transition">פרויקטים</a>
-                <a href="#services" class="hover:text-[#D4AF37] transition">שירותים</a>
-                <a href="#contact" class="hover:text-[#D4AF37] transition">צור קשר</a>
+            <div class="flex gap-2">
+                <button onclick="shareLink()" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+                    <i class="fas fa-share-nodes"></i>
+                </button>
             </div>
-            <a href="https://wa.me/972500000000" class="gold-gradient text-black px-6 py-2 rounded-full font-bold hover:scale-105 transition shadow-lg">
-                <i class="fab fa-whatsapp"></i> ייעוץ חינם
-            </a>
         </div>
     </nav>
 
     <header class="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover brightness-50" alt="שיפוץ יוקרתי">
+            <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover brightness-[0.3]" alt="שיפוץ">
         </div>
         <div class="relative z-10 text-center text-white px-4">
-            <h2 class="text-[#D4AF37] font-bold text-xl mb-4 tracking-widest uppercase">איכות ללא פשרות</h2>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 shadow-sm">הופכים חזון למציאות בנויה</h1>
-            <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-10 text-gray-200">מומחים בשיפוצי יוקרה, עבודות גמר ובנייה פרטית עם ליווי הנדסי מלא.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="bg-white text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-[#D4AF37] transition">התחילו פרויקט</a>
-                <a href="#projects" class="border-2 border-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition text-white">צפו בעבודות</a>
+            <h2 class="text-[#D4AF37] font-bold text-lg mb-3 tracking-widest uppercase">צוות של מומחים</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 italic">הופכים חזון למציאות</h1>
+            
+            <div class="bg-black/40 backdrop-blur-md p-6 rounded-3xl border border-white/10 inline-block mb-8">
+                <p class="text-2xl md:text-3xl font-black text-blue-400">
+                    כל סוגי המקצועות והעובדים במקום אחד
+                </p>
+                <p class="text-gray-300 mt-2 font-bold">אנחנו כאן כדי לבנות לכם שקט נפשי</p>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-20 container mx-auto px-4">
+    <section id="team" class="py-16 -mt-20 relative z-20 container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="card-glass bg-white p-6 rounded-[2rem] shadow-2xl text-center border-b-4 border-blue-500">
+                <div class="w-16 h-16 gold-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl shadow-lg font-black">1</div>
+                <h4 class="text-xl font-black mb-1 text-gray-800">מנהל פרויקטים</h4>
+                <p class="text-gray-500 mb-4 font-bold text-sm">זמין לכל שאלה</p>
+                <a href="tel:0524905732" class="block w-full bg-gray-900 text-white py-3 rounded-xl font-bold mb-2 hover:bg-blue-600 transition">התקשר: 052-4905732</a>
+                <a href="https://wa.me/972524905732" class="block w-full border border-green-500 text-green-600 py-3 rounded-xl font-bold hover:bg-green-50 transition"><i class="fab fa-whatsapp ml-1"></i> וואטסאפ</a>
+            </div>
+
+            <div class="card-glass bg-white p-6 rounded-[2rem] shadow-2xl text-center border-b-4 border-[#D4AF37]">
+                <div class="w-16 h-16 gold-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl shadow-lg font-black">2</div>
+                <h4 class="text-xl font-black mb-1 text-gray-800 text-center">שמעון</h4>
+                <p class="text-gray-500 mb-4 font-bold text-sm">ביצוע ופיקוח בשטח</p>
+                <a href="tel:0555693519" class="block w-full bg-gray-900 text-white py-3 rounded-xl font-bold mb-2 hover:bg-blue-600 transition">התקשר: 055-5693519</a>
+                <a href="https://wa.me/972555693519" class="block w-full border border-green-500 text-green-600 py-3 rounded-xl font-bold hover:bg-green-50 transition"><i class="fab fa-whatsapp ml-1"></i> וואטסאפ</a>
+            </div>
+
+            <div class="card-glass bg-white p-6 rounded-[2rem] shadow-2xl text-center border-b-4 border-blue-500">
+                <div class="w-16 h-16 gold-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl shadow-lg font-black">3</div>
+                <h4 class="text-xl font-black mb-1 text-gray-800">יצחק</h4>
+                <p class="text-gray-500 mb-4 font-bold text-sm">מומחה עבודות גמר</p>
+                <a href="tel:0587251612" class="block w-full bg-gray-900 text-white py-3 rounded-xl font-bold mb-2 hover:bg-blue-600 transition">התקשר: 058-7251612</a>
+                <a href="https://wa.me/972587251612" class="block w-full border border-green-500 text-green-600 py-3 rounded-xl font-bold hover:bg-green-50 transition"><i class="fab fa-whatsapp ml-1"></i> וואטסאפ</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 container mx-auto px-6">
         <div class="text-center mb-16">
-            <h3 class="text-3xl font-bold border-b-4 border-[#D4AF37] inline-block pb-2">השירותים שלנו</h3>
+            <h3 class="text-3xl font-extrabold border-b-4 border-[#D4AF37] inline-block pb-2 uppercase italic">מה אנחנו מציעים?</h3>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-[#D4AF37] hover:-translate-y-2 transition">
-                <i class="fas fa-home text-4xl text-[#D4AF37] mb-4"></i>
-                <h4 class="text-xl font-bold mb-3">שיפוץ קומפלט</h4>
-                <p class="text-gray-600">שיפוץ יסודי מהמסד עד הטפחות כולל הריסה, בנייה מחדש וגמר.</p>
+        <div class="grid md:grid-cols-3 gap-8 text-right">
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                <i class="fas fa-check-double text-4xl text-[#D4AF37] mb-4"></i>
+                <h4 class="text-xl font-bold mb-3">אחריות משולשת</h4>
+                <p class="text-gray-600">שלשה שותפים שדואגים שהעבודה תתבצע ברמה הכי גבוהה שיש.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-[#D4AF37] hover:-translate-y-2 transition">
-                <i class="fas fa-paint-roller text-4xl text-[#D4AF37] mb-4"></i>
-                <h4 class="text-xl font-bold mb-3">עבודות גמר וגבס</h4>
-                <p class="text-gray-600">עיצובים בגבס, הנמכות תקרה, תאורה נסתרת וצבע ברמה הגבוהה ביותר.</p>
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                <i class="fas fa-tools text-4xl text-[#D4AF37] mb-4"></i>
+                <h4 class="text-xl font-bold mb-3">כל בעלי המקצוע</h4>
+                <p class="text-gray-600 text-sm">חשמל, אינסטלציה, ריצוף, צבע וגבס - הכל תחת ניהול אחד.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-[#D4AF37] hover:-translate-y-2 transition">
-                <i class="fas fa-faucet text-4xl text-[#D4AF37] mb-4"></i>
-                <h4 class="text-xl font-bold mb-3">אינסטלציה וחשמל</h4>
-                <p class="text-gray-600">החלפת תשתיות ישנות במערכות מודרניות ותקניות עם אחריות.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="dark-bg text-white py-16">
-        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-4xl font-bold text-[#D4AF37] mb-2">+15</div>
-                <div class="text-sm uppercase tracking-widest text-gray-400">שנות ניסיון</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-[#D4AF37] mb-2">+250</div>
-                <div class="text-sm uppercase tracking-widest text-gray-400">פרויקטים הסתיימו</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-[#D4AF37] mb-2">100%</div>
-                <div class="text-sm uppercase tracking-widest text-gray-400">לקוחות מרוצים</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-[#D4AF37] mb-2">24/7</div>
-                <div class="text-sm uppercase tracking-widest text-gray-400">שירות וזמינות</div>
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                <i class="fas fa-clock text-4xl text-[#D4AF37] mb-4"></i>
+                <h4 class="text-xl font-bold mb-3">עמידה בזמנים</h4>
+                <p class="text-gray-600 text-sm">הכוח שלנו כצוות מאפשר לנו לסיים פרויקטים מהר יותר מבלי להתפשר על האיכות.</p>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-100 py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-6">מוכנים לשינוי?</h3>
-            <p class="mb-8 text-gray-600">צרו קשר עוד היום לקבלת הצעת מחיר מפורטת ללא התחייבות.</p>
-            <div class="flex justify-center gap-6 text-3xl">
-                <a href="tel:0500000000" class="hover:text-[#D4AF37]"><i class="fas fa-phone-alt"></i></a>
-                <a href="#" class="hover:text-[#D4AF37]"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-[#D4AF37]"><i class="fab fa-facebook"></i></a>
-            </div>
-            <p class="mt-10 text-gray-400 text-sm">© 2024 Finish Construction & Renovation. כל הזכויות שמורות.</p>
-        </div>
+    <footer class="dark-bg text-white py-12 text-center">
+        <p class="text-[#D4AF37] font-bold mb-4 uppercase tracking-tighter">Finish Construction & Renovation</p>
+        <p class="text-gray-500 text-xs">© 2026 כל הזכויות שמורות לצוות המומחים בשיפוצים</p>
     </footer>
 
+    <script>
+        function shareLink() {
+            const shareData = {
+                title: 'Finish בנייה - צוות מומחים',
+                text: 'ראיתי את צוות השיפוצים הזה וחשבתי שזה יעניין אותך - כל המקצועות במקום אחד:',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`);
+            }
+        }
+    </script>
 </body>
 </html>
